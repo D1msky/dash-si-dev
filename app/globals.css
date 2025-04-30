@@ -1,26 +1,172 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    @apply bg-white text-neutral;
+  }
+ 
+  * {
+    @apply border-neutral-outline outline-primary/50;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+:root {
+  /* Custom properties that match your theme */
+  --radius: 0.625rem;
+  --radius-sm: 0.425rem;
+  --radius-md: 0.525rem;
+  --radius-lg: 0.625rem;
+  --radius-xl: 0.825rem;
+ 
+  /* Colors based on your Tailwind config */
+  --background: #ffffff;
+  --foreground: #303034;
+  --card: #ffffff;
+  --card-foreground: #303034;
+  --popover: #ffffff;
+  --popover-foreground: #303034;
+ 
+  /* Primary colors */
+  --primary: #0c74bc;
+  --primary-foreground: #ffffff;
+  --primary-shade: #006398;
+  --primary-dark: #004b74;
+  --primary-light-container: #eef8ff;
+ 
+  /* Secondary colors */
+  --secondary: #009ec8;
+  --secondary-foreground: #ffffff;
+  --secondary-dark: #006686;
+  --secondary-container: #e8f6ff;
+ 
+  /* Tertiary colors */
+  --tertiary: #d1303a;
+  --tertiary-foreground: #ffffff;
+  --tertiary-dark: #b81c2b;
+  --tertiary-container: #ffdad8;
+ 
+  /* Neutral colors */
+  --neutral: #303034;
+  --neutral-shade: #a4a5a6;
+  --neutral-text: #70787c;
+  --neutral-outline: #d6d6d6;
+  --neutral-surface: #f5f5f5;
+ 
+  /* Surface */
+  --surface: #fafafa;
+ 
+  /* Status colors */
+  --status-success: #008000;
+  --status-pending: #bd8217;
+  --status-failed: #d1303a;
+ 
+  /* Base */
+  --base: #566c77;
+ 
+  /* Border, input, ring */
+  --border: #d6d6d6;
+  --input: #d6d6d6;
+  --ring: #0c74bc;
+ 
+  /* Muted, accent, destructive */
+  --muted: #f5f5f5;
+  --muted-foreground: #70787c;
+  --accent: #eef8ff;
+  --accent-foreground: #0c74bc;
+  --destructive: #d1303a;
+  --destructive-foreground: #ffffff;
+}
+
+.dark {
+  --background: #1a1a1a;
+  --foreground: #ffffff;
+  --card: #262626;
+  --card-foreground: #ffffff;
+  --popover: #262626;
+  --popover-foreground: #ffffff;
+ 
+  /* Primary colors (darker theme) */
+  --primary: #2e8ed6;
+  --primary-foreground: #ffffff;
+  --primary-shade: #1a7abf;
+  --primary-dark: #0c74bc;
+  --primary-light-container: #1c3a54;
+ 
+  /* Secondary colors (darker theme) */
+  --secondary: #2baed4;
+  --secondary-foreground: #ffffff;
+  --secondary-dark: #009ec8;
+  --secondary-container: #154757;
+ 
+  /* Tertiary colors (darker theme) */
+  --tertiary: #e05a62;
+  --tertiary-foreground: #ffffff;
+  --tertiary-dark: #d1303a;
+  --tertiary-container: #53181a;
+ 
+  /* Neutral colors (darker theme) */
+  --neutral: #e0e0e0;
+  --neutral-shade: #a0a0a0;
+  --neutral-text: #b0b0b0;
+  --neutral-outline: #555555;
+  --neutral-surface: #333333;
+ 
+  /* Surface */
+  --surface: #2d2d2d;
+ 
+  /* Status colors */
+  --status-success: #2db92d;
+  --status-pending: #daa44b;
+  --status-failed: #e05a62;
+ 
+  /* Base */
+  --base: #8ca2ad;
+ 
+  /* Border, input, ring */
+  --border: #555555;
+  --input: #555555;
+  --ring: #2e8ed6;
+ 
+  /* Muted, accent, destructive */
+  --muted: #333333;
+  --muted-foreground: #b0b0b0;
+  --accent: #1c3a54;
+  --accent-foreground: #2e8ed6;
+  --destructive: #e05a62;
+  --destructive-foreground: #ffffff;
+}
+
+/* Additional utility classes if needed */
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-shade transition-colors;
+  }
+ 
+  .btn-secondary {
+    @apply bg-secondary text-white px-4 py-2 rounded-md hover:bg-secondary-dark transition-colors;
+  }
+ 
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-neutral-outline p-6;
+  }
+ 
+  .status-badge {
+    @apply text-body-xs font-medium px-3 py-1 rounded-full;
+  }
+ 
+  .status-success {
+    @apply bg-status-success/10 text-status-success;
+  }
+ 
+  .status-pending {
+    @apply bg-status-pending/10 text-status-pending;
+  }
+ 
+  .status-failed {
+    @apply bg-status-failed/10 text-status-failed;
+  }
 }
