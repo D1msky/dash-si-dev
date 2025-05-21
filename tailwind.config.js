@@ -3,46 +3,61 @@ module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './lib/**/*.{js,ts,jsx,tsx,mdx}',
+    './hooks/**/*.{js,ts,jsx,tsx,mdx}'
   ],
+  important: true,
   theme: {
     extend: {
       colors: {
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
+        border: '#d6d6d6',
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
+          DEFAULT: '#0c74bc',
+          foreground: '#eef8ff',
+          shade: '#006398',
+          dark: '#004b74'
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
+          DEFAULT: '#009ec8',
+          foreground: '#e8f6ff',
+          dark: '#006686'
         },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
+        tertiary: {
+          DEFAULT: '#d1303a',
+          foreground: '#ffdad8',
+          dark: '#b81c2b'
         },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
+        success: {
+          light: '#96e28c',
+          DEFAULT: '#3FA244'
         },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
+        info: {
+          light: '#6de1f0',
+          DEFAULT: '#299FD1'
         },
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
+        warning: {
+          light: '#fac664',
+          DEFAULT: '#ef8801'
         },
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
+        error: {
+          light: '#ec8574',
+          DEFAULT: '#c81a23'
         },
+        neutral: {
+          light: '#d0d5dd',
+          DEFAULT: '#677084'
+        },
+        disabled: {
+          DEFAULT: 'rgba(208, 213, 221, 1)'
+        },
+        base: {
+          white: '#fff',
+          black: '#111'
+        }
       },
-      textStyles: {
+      fontSize: {
         h1: ['2.5rem', { lineHeight: '3rem', fontWeight: '700' }],
         h2: ['2rem', { lineHeight: '2.5rem', fontWeight: '700' }],
         h3: ['1.75rem', { lineHeight: '2.25rem', fontWeight: '600' }],
@@ -56,9 +71,16 @@ module.exports = {
 
         caption: ['0.75rem', { lineHeight: '1rem', fontWeight: '400' }],
         button: ['0.875rem', { lineHeight: '1rem', fontWeight: '500' }],
-        label: ['0.875rem', { lineHeight: '1.25rem', fontWeight: '500' }],
-      },
-    },
+        label: ['0.875rem', { lineHeight: '1.25rem', fontWeight: '500' }]
+      }
+    }
   },
-  plugins: [require('@tailwindcss/aspect-ratio'), require('tailwindcss-animate')],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+    require('tailwindcss-animate'),
+    require('@tailwindcss/typography')
+  ],
+  corePlugins: {
+    preflight: false, // Disable preflight to avoid conflicts with Ant Design
+  },
 };
