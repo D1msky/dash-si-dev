@@ -4,11 +4,11 @@ import mysql from 'mysql2/promise';
 
 // Create a connection pool
 const pool = mysql.createPool({
-  host: process.env.DB_HOST || 'db-dev-indopaket.cwaihqqxerhv.ap-southeast-1.rds.amazonaws.com',
+  host: process.env.DB_HOST,
   port: process.env.DB_PORT || 3306,
-  database: process.env.DB_DATABASE || 'webdev',
-  user: process.env.DB_USERNAME || 'dev_indopaket',
-  password: process.env.DB_PASSWORD || 'pindopaket',
+  database: process.env.DB_DATABASE,
+  user: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
